@@ -9,6 +9,19 @@ use App\Mahasiswa;
 
 class MahasiswaController extends Controller
 {
+
+   public function mahasiswa()
+    {
+    	$mahasiswa = mahasiswa::all();
+
+    	foreach ($mahasiswa as $mhs) {
+    		echo "Nama : ".$mhs->nama;
+    		echo "<br>";
+    		echo "Username : ".$mhs->pengguna->username;
+    		echo "<br>";
+    	}
+    }
+
    public function awal()
     {
     	return "-- SELAMAT DATANG DI MAHASISWA CONTROLLER --";

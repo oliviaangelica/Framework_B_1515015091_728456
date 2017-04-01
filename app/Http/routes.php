@@ -18,6 +18,10 @@ Route::get('hello-world', function () {
     return "Hello-world";
 });
 
+Route::get('mahasiswa_pengguna','MahasiswaController@mahasiswa');
+
+Route::get('dosen_pengguna','DosenController@dosen');
+
 // Route::get('pengguna/{pengguna}', function ($pengguna) {
    // return "Hello-world dari pengguna $pengguna";
 // });
