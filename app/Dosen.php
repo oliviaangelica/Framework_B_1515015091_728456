@@ -8,6 +8,8 @@ class Dosen extends Model
 {
     protected $table = 'dosen';  // digunakan untuk mendeklarasikan tabel dosen
 
+      protected $guarded = ['id'];  //berfungsi untuk mengabaikan atribut id oleh Eloquent pada saat kita melakukan insert/update
+
     //protected $fillable = ['nama','nip','alamat','pengguna_id'];
 
      //DISINI MODEL DOSEN_MATAKULIAH BERELASI DENGAN MODEL PENGGUNA DAN MODEL DOSEN_MATAKULIAH
@@ -21,4 +23,12 @@ class Dosen extends Model
 
    return $this->hasMany(Dosen_matakuliah::class);  // model dosen_matakuliah yang mempunyai nilai return dari fungsi hasMany yang merelasikan dosen dengan banyak dosen_matakuliah dengan dosen_id sebagai foreign key nya
    }
+
+   public function listDosenDanNip(){
+        $out = [];
+        foreach ($this->all() as $dsn) {
+            $out[$dsn->id] = "{$dsn->nama} ({$dsn->nip})";
+        }
+    return $out;
+    }
 }

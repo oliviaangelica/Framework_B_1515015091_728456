@@ -8,6 +8,8 @@ class Dosen_matakuliah extends Model
 {
    protected $table = 'dosen_matakuliah'; // digunakan untuk mendeklarasikan tabel dosen_matakuliah
 
+  protected $guarded =['id'];//mengabaikan aribut id pada saat melakukan insert/delete oleh eloquent
+
   //protected $fillable = ['dosen_id','matakuliah_id'];
 
    //DISINI MODEL DOSEN_MATAKULIAH BERELASI DENGAN MODEL DOSEN, JADWAL_MATAKULIAH DAN MATAKULIAH
@@ -26,4 +28,12 @@ class Dosen_matakuliah extends Model
        
        return $this->belongsTo(Matakuliah::class); // memberikan nilai return dari fungsi belongsTo yang merelasikan banyak model dosen_matakuliah dengan model matakuliah
     }
+
+     public function listDosendanMatakuliah(){
+        $out = [];
+        foreach ($this->all() as $dsnMtk) {
+            $out[$dsnMtk->id] = "{$dsnMtk->dosen->nama} (Matakuliah {$dsnMtk->matakuliah->title})";
+        }
+    return $out;
+}
 }

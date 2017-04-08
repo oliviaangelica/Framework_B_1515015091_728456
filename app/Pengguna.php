@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pengguna extends Model
 {
 
-    protected $table = 'pengguna'; // digunakan untuk mendeklarasikan tabel pengguna
+    protected $table = 'pengguna';// digunakan untuk mendeklarasikan tabel pengguna
+
+ protected $guarded=['id'];    
 
     //protected $fillable = ['username','password'];
 

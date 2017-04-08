@@ -8,6 +8,8 @@ class Jadwal_matakuliah extends Model
 {
     protected $table = 'jadwal_matakuliah'; // digunakan untuk mendeklarasikan tabel jadwal_matakuliah
 
+    protected $guarded = ['id']; // mengabaikan atribut id pada saat melakikan insert/update
+
     //protected $fillable = ['mahasiswa_id','ruangan_id','dosen_matakuliah_id'];
 
     //DISINI MODEL JADWAL_MATAKULIAH BERELASI DENGAN MODEL MAHASISWA, DOSEN_MATAKULIAH DAN RUANGAN

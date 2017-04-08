@@ -11,21 +11,19 @@
 			<tr>
 				<th> No. </th>
 				<th> Nama </th>
-				<th> Nim </th>
+				<th> NIM </th>
 				<th> Alamat </th>
-				<th> Pengguna_id </th>
+				<th> Aksi </th>
 			</tr>
 		</thead>
 		<tbody>
 			<?php $x=1;?>
-			@foreach ($data as $mahasiswa)
+			@foreach ($semuaMahasiswa as $mahasiswa)
 				<tr>
 					<td>{{ $x++ }}</td>
 					<td>{{ $mahasiswa->nama or 'nama kosong' }}</td>
 					<td>{{ $mahasiswa->nim or 'nim kosong' }}</td>
 					<td>{{ $mahasiswa->alamat or 'alamat kosong' }}</td>
-					<td>{{ $mahasiswa->pengguna_id or 'pengguna_id kosong' }}</td>
-				
 				
 					<td>
 						<div class="btn-group" role="group">
